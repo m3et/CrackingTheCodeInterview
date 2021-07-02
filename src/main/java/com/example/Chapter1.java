@@ -7,9 +7,10 @@ import java.util.*;
  */
 class Chapter1 {
     private Chapter1() {
-        // Utility classes, non-public constructor should be defined to override Java's default public constructor
+        // Utility classes, non-public constructor should be defined to override Java's
+        // default public constructor
         throw new IllegalStateException("Utility class");
-      }
+    }
 
     /**
      * Q 1.1
