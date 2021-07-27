@@ -44,9 +44,7 @@ public class Chapter2 {
 
     /**
      * The method removes any duplicate elements from the list , using tow pointer
-     * method
-     * Run time - O(N^2)
-     * Space Complexity O(1)
+     * method Run time - O(N^2) Space Complexity O(1)
      * 
      * @param list - LinkedListNode
      */
@@ -72,28 +70,28 @@ public class Chapter2 {
         return head;
     }
 
-    public static void main(String[] args) {
-        LinkedListNode first = new LinkedListNode(0, null, null); // AssortedMethods.randomLinkedList(1000, 0, 2);
-        LinkedListNode head = first;
-        LinkedListNode second = first;
-        for (int i = 1; i < 8; i++) {
-            second = new LinkedListNode(i % 2, null, null);
-            first.setNext(second);
-            second.setPrevious(first);
-            first = second;
+    /**
+     * Q 2.3
+     * @param head of LinkedList
+     * @param k
+     * @return thr kth element from last if Len(List) > k else return null Iterative
+     *         solution takes O(N) time and O(1) space
+     */
+    public static LinkedListNode kthFromLast(LinkedListNode head, int k) {
+        LinkedListNode curr = head;
+        LinkedListNode runner = head;
+
+        for (int i = 0; i < k; ++i) {
+            if (runner == null)
+                return null;
+            runner = runner.next;
         }
-        System.out.println(head.printForward());
-
-        LinkedListNode cloneA = head.clone();
-        LinkedListNode cloneB = head.clone();
-        LinkedListNode cloneC = head.clone();
-        removeDupsLinkedListNodeA(cloneA);
-        removeDupsLinkedListNodeA(cloneB);
-        removeDupsLinkedListNodeA(cloneC);
-
-        System.out.println(cloneA.printForward());
-        System.out.println(cloneB.printForward());
-        System.out.println(cloneC.printForward());
+        while (runner != null) {
+            curr = curr.next;
+            runner = runner.next;
+        }
+        return curr;
     }
 
+    
 }
