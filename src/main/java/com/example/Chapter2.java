@@ -72,6 +72,7 @@ public class Chapter2 {
 
     /**
      * Q 2.3
+     * 
      * @param head of LinkedList
      * @param k
      * @return thr kth element from last if Len(List) > k else return null Iterative
@@ -93,5 +94,42 @@ public class Chapter2 {
         return curr;
     }
 
-    
+
+    /**
+     * 
+     * @param node 
+     * @param x value to partition list 
+     * @return LinkedListNode head such that all node less then x come befor all nodes grater than or equals to x
+     */
+    // TODO: you didnt mannaged to do it....
+    public static LinkedListNode partition(LinkedListNode node, int x) {
+        LinkedListNode head = node;
+        LinkedListNode tail = node;
+
+        while (node != null) {
+            LinkedListNode next = node.next;
+
+            if (node.data < x) {
+                node.next = head;
+                head = node;
+            } else {
+                tail.next = node;
+                tail = node;
+            }
+            node = next;
+        }
+
+        tail.next = null;
+        return head;
+    }
+
+    // public static LinkedListNode sumLists(LinkedListNode l1, LinkedListNode l2) {
+
+    //     while (l1 != null || l2 != null) {
+    //         int a = 
+    //     }
+
+        
+    // }
+
 }
